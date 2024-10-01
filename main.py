@@ -242,7 +242,7 @@ def main():
     print(f"Valid rows after cleaning: {valid_rows}")
     print(f"Rows removed: {invalid_rows}")
 
-    # Log errors if necessary
+    # error log
     # if error_log:
     #     print("\nSample Errors:")
     #     for i, (row, errors) in enumerate(error_log[:5]):
@@ -259,10 +259,10 @@ def main():
         print("Start time must be before end time.")
         return
 
-    # Aggregate data into OHLCV bars
+    # aggregate data into OHLCV bars
     ohlcv_data = aggregate_ohlcv(cleaned_data, interval, start_time, end_time)
 
-    # Write OHLCV data to CSV
+    # data -> csv
     output_file = "./ohlcv_output.csv"
     ohlcv_to_csv(ohlcv_data, output_file)
     print(f"\nOHLCV data written to {output_file}")
